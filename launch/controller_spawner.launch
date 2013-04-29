@@ -1,0 +1,17 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+    <!-- Load controller configuration to parameter server -->
+    <rosparam file="$(find cuarm_dyn)/config/dynamixel_joint_controllers.yaml" command="load"/>
+    
+    <!-- start specified joint controllers -->
+    <node name="dynamixel_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port=primary_port
+                --type=simple
+                hand_controller
+                diff_left_controller
+                diff_right_controller
+                base_controller"
+          output="screen"/>
+</launch>

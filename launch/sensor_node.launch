@@ -1,0 +1,9 @@
+<launch>
+    <node name="sensor_node" pkg="cuarm_dyn" type="sensornode.py">
+        <param name="w1_addr" value="1" type="int" />
+        <param name="w2_addr" value="2" type="int" />
+        <param name="w3_addr" value="0" type="int" />
+        <param name="sensor_port" value="/dev/teensy" type="string" />
+        <param name="baud_rate" value="1000000" type="int" />
+    </node>
+</launch>

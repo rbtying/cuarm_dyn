@@ -1,0 +1,10 @@
+time timestamp
+int32 w1pos
+int32 w2pos
+int32 w3pos
+float64 w1pos_rad
+float64 w2pos_rad
+float64 w3pos_rad
+float64 angle
+float64 rotate
+float64 twist

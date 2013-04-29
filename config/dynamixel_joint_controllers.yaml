@@ -1,0 +1,48 @@
+hand_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hand_joint
+    joint_speed: 2.0
+    motor:
+        id: 7
+        init: 2048
+        min: 0
+        max: 4095
+diff_left_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_velocity_controller
+        type: JointVelocityController
+    joint_name: diff_left
+    joint_speed: 0
+    motor:
+        id: 1
+        init: 0
+        min: 0
+        max: 0
+diff_right_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_velocity_controller
+        type: JointVelocityController
+    joint_name: diff_right
+    joint_speed: 0
+    motor:
+        id: 2
+        init: 0
+        min: 0
+        max: 0
+base_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_velocity_controller
+        type: JointVelocityController
+    joint_name: diff_twist
+    joint_speed: 0
+    motor:
+        id: 5
+        init: 0
+        min: 0
+        max: 0

@@ -1,0 +1,12 @@
+<launch>
+
+    <node respawn="true" pkg="joy" type="joy_node" name="ps3node">
+        <param name="dev" value="/dev/input/js0" type="string" />
+        <param name="deadzone" value="0.12" type="double" />
+    </node>
+
+    <node name="joy_ctrl" pkg="wrist_node" type="joy_ctrl.py">
+
+    </node>
+
+</launch>

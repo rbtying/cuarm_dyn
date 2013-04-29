@@ -1,0 +1,21 @@
+<launch>
+    <include file="$(find cuarm_dyn)/launch/sensor_node.launch" />
+
+    <node name="wrist_node" pkg="cuarm_dyn" type="wristnode.py">
+        <param name="diff_left" value="diff_left_controller" type="string" />
+        <param name="diff_right" value="diff_right_controller" type="string" />
+        <param name="wrist_rotate" value="base_controller" type="string" />
+
+        <param name="rotate_Kp" value="2" type="double" />
+        <param name="rotate_Ki" value="0" type="double" />
+        <param name="rotate_Kd" value="0" type="double" />
+
+        <param name="angle_Kp" value="5" type="double" />
+        <param name="angle_Ki" value="0" type="double" />
+        <param name="angle_Kd" value="1" type="double" />
+
+        <param name="twist_Kp" value="10" type="double" />
+        <param name="twist_Ki" value="0" type="double" />
+        <param name="twist_Kd" value="0.1" type="double" />
+    </node>
+</launch>

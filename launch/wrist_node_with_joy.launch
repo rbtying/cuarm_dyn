@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find cuarm_dyn)/launch/cuarm_dyn.launch" />
+    <include file="$(find cuarm_dyn)/launch/joy.launch" />
+</launch>
