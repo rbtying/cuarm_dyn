@@ -1,7 +1,9 @@
 <launch>
+    <include file="$(find cuarm_dyn)/launch/controller_manager.launch" />
+    <include file="$(find cuarm_dyn)/launch/controller_spawner.launch" />
     <include file="$(find cuarm_dyn)/launch/sensor_node.launch" />
 
-    <node name="wrist_node" pkg="cuarm_dyn" type="wristnode.py">
+    <node name="wrist_node" pkg="cuarm_dyn" type="wristnode.py" output="screen">
         <param name="diff_left" value="diff_left_controller" type="string" />
         <param name="diff_right" value="diff_right_controller" type="string" />
         <param name="wrist_rotate" value="base_controller" type="string" />
@@ -18,4 +20,6 @@
         <param name="twist_Ki" value="0" type="double" />
         <param name="twist_Kd" value="0.1" type="double" />
     </node>
+
+    <!-- <node name="follow_node" pkg="cuarm_dyn" type="followcontroller.py" output="screen" /> -->
 </launch>

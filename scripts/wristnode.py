@@ -38,9 +38,9 @@ class WristNode:
         self.data_pub = rospy.Publisher('wrist_diff/data', Data)
 
         # subscribers
-        self.des_ang_sub = rospy.Subscriber('wrist_diff/desired_angle', Float32, self.angle_cb)
-        self.des_rot_sub = rospy.Subscriber('wrist_diff/desired_rotation', Float32, self.rotate_cb)
-        self.des_twt_sub = rospy.Subscriber('wrist_diff/desired_twist', Float32, self.twist_cb)
+        self.des_ang_sub = rospy.Subscriber('joints/differential_lift/command', Float64, self.angle_cb)
+        self.des_rot_sub = rospy.Subscriber('joints/differential_rotate/command', Float64, self.rotate_cb)
+        self.des_twt_sub = rospy.Subscriber('joints/wrist_rotate/command', Float64, self.twist_cb)
 
         self.raw_pos_sub = rospy.Subscriber('wrist_diff/raw_pos', RawPosition, self.rawpos_cb)
 
@@ -92,7 +92,6 @@ class WristNode:
                     maxspd = 10
                     ang = self.angle_PID.getOutput()
                     rot = self.rotate_PID.getOutput()
-                    # rot = 0
 
                     twist_out = max(min(self.twist_PID.getOutput(), maxspd), -maxspd)
                     diff_left_out = max(min(ang + rot, maxspd), -maxspd)
